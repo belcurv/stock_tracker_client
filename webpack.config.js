@@ -2,31 +2,31 @@ const path = require('path');
 
 module.exports = {
 
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode : process.env.NODE_ENV === 'production' ? 'production' : 'development',
 
-  entry: [
+  entry : [
     'webpack-dev-server/client?http://localhost:8080',
     './src/index.tsx'
   ],
-  
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+
+  output : {
+    path     : path.join(__dirname, 'dist'),
+    filename : 'bundle.js'
   },
 
-  devtool: 'source-map',
+  devtool : 'source-map',
 
-  devServer: {
-    publicPath: '/dist/',
-    historyApiFallback: true
+  devServer : {
+    publicPath         : '/dist/',
+    historyApiFallback : true
   },
 
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
+  resolve : {
+    extensions : ['.ts', '.tsx', '.js', '.json']
   },
 
-  module: {
-    rules: [
+  module : {
+    rules : [
       {
         test   : /\.tsx?$/,
         loader : 'awesome-typescript-loader'
@@ -37,8 +37,8 @@ module.exports = {
         loader  : 'source-map-loader'
       },
       {
-        test: /\.s?css$/,
-        use : [
+        test : /\.s?css$/,
+        use  : [
           'style-loader',
           'css-loader',
           'sass-loader'
@@ -46,9 +46,9 @@ module.exports = {
       }
     ]
   },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM'
+  externals : {
+    react       : 'React',
+    'react-dom' : 'ReactDOM'
   }
 
-}
+};
